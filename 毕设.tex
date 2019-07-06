@@ -1,0 +1,103 @@
+%!TEX program = xelatex
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode     
+\documentclass[draftformat,mathCMR]{HUSTMthesis}
+
+\usepackage{xeCJK}
+\usepackage{HUSTtils}
+\usepackage{HUSTthesis}
+\usepackage{graphicx}
+\usepackage[justification=justified,labelsep=quad,format=hang]{caption}  
+\usepackage{epstopdf}
+\usepackage{emlines}
+\usepackage{longtable}
+\usepackage{tikz}
+\usepackage{times}
+\usepackage{natbib}
+\usepackage{color}
+\usepackage{amssymb,algorithmic,booktabs,url}
+\usepackage{float,multirow,subfig,threeparttable}
+\usepackage{algorithmic,algorithm}
+\usepackage{etex}
+\usepackage{listings}
+\usepackage{enumitem}
+\usepackage{diagbox}
+\usepackage{makecell}
+\usepackage{setspace}
+\makeatletter % set distance from top of page to first float
+\setlength{\@fptop}{5pt}
+\makeatother
+
+\def\l{[\ }
+\def\r#1{{{\ ]_{}}_{}}_{#1}}
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{1,0,0}
+
+
+% listing ----- 
+\lstdefinestyle{customc}{
+	belowcaptionskip=1\baselineskip,
+	breaklines=true,
+	xleftmargin=\parindent,
+	language=C,
+	deletestring=[b]{'},
+	showstringspaces=false,
+	basicstyle=\normalsize\ttfamily,
+	keywordstyle=\bfseries\color{green!40!black},
+	commentstyle=\itshape\color{purple!40!black},
+	identifierstyle=\color{blue},
+	stringstyle=\color{orange},
+	otherkeywords={@model,@mu,@ms},
+	escapeinside={\%*}{*)},
+	tabsize=3,
+}
+
+\lstset{style=customc,escapeinside=``}
+
+
+\begin{document}
+
+\graphicspath{{figure/}}
+
+%\frontmatter
+\input{chapter/cover}
+\makecover
+
+%目录
+\tableofcontents
+
+%\listoffigures %如果要加入“插图索引”，请去掉行首的注释符
+
+%\listoftables %如果要加入“表格索引”，请去掉行首的注释符
+
+% 对照表
+%\include{chapter/denotation} %如果要加入“符号对照表”，请去掉行首的注释符
+\mainmatter
+\include{chapter/cover}
+\include{chapter/chapter1}
+\include{chapter/chapter2}
+\include{chapter/chapter3}
+\include{chapter/chapter4}   
+\include{chapter/chapter5}
+%\include{chapter/chap06}
+%\include{chapter/conclusion}s
+
+%%% 致谢
+\include{chapter/ack}
+
+%% 参考文献
+%Included for Gather Purpose only: input "ref/refs.bib"
+\bibliographystyle{HUSTThesis}
+\bibliography{ref/Reference}
+
+
+%% 附录
+\begin{appendix}
+\input{chapter/appendix01}
+\input{chapter/appendix02}
+\input{chapter/appendix03}
+\end{appendix}
+
+\end{document}
